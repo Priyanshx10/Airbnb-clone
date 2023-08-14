@@ -21,7 +21,8 @@
   },
   "devDependencies": {
     "@types/node": "20.4.9",
-    "eslint-config-timespace": "0.0.5"
+    "eslint-config-timespace": "0.0.5",
+    "typescript": "^5.1.6"
   },
   "eslintConfig": {
     "extends": "timespace"
