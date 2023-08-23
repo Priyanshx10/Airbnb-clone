@@ -1,3 +1,10 @@
 node_modules
+<<<<<<< HEAD
 .next
+=======
+.DS_Store
+.next
+.env
+
+>>>>>>> master
 
