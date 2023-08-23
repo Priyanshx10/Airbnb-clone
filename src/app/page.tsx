@@ -1,17 +1,15 @@
 /* eslint-disable prettier/prettier */
- import Head from "next/head";
+
  import React from "react";
  import Header from "./components/Header";
  import Banner from "./components/Banner";
+import SmallCard from "./components/SmallCard";
+
+
  
  export default function Home({exploreData}) {
    return (
        <div className="">
-       
-         <head>
-           <title>AIRBNB</title>
-           <link rel="icon" href="/favicon.ico" />
-         </head>
          {/* Header */}
          <Header />
          {/* Banner */}
@@ -22,9 +20,17 @@
            <h2 className="text-3xl font-semibold">Explore Nearby</h2>
  
            {/* Pull some data from a server - API are already created. */}
-           {exploreData?.map((item) => (
-           <h1>{item.location}</h1>
+           {exploreData?.map(({img ,location ,distance}) => (
+           <SmallCard
+           key={img}
+           img={img}
+           location={location}
+           distance={distance}
+           />
            ))}
+         </section>
+         <section>
+          <h2>Live Anywhere.</h2>
          </section>
        </main>
      </div>
