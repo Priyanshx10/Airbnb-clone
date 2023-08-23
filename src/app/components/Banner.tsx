@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 import Image from 'next/image';
 import React from 'react';
 
@@ -11,7 +13,7 @@ function Banner() {
         objectFit="cover"
       />
       <div className="absolute top-1/2 w-full text-center">
-        <p className="text-sm sm:text-md text-black ">
+        <p className="text-sm sm:text-md md:text-lg lg:text-xl text-black ">
           Not Sure where to go ? Perfect.
         </p>
         <button

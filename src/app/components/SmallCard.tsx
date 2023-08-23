@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-
 import Image from "next/image";
+
 interface SmallCardProps{
     img: string;
     location: string;
@@ -14,7 +14,7 @@ function SmallCard({img ,location ,distance}: SmallCardProps) {
                 <Image
                 src={img}
                 layout="fill"
-                alt="image"
+                alt="SmallCardImages"
                 className="rounded-lg"
                 />
              </div>

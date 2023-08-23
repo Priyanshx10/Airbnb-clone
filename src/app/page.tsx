@@ -3,16 +3,25 @@ import React from 'react';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import SmallCard from './components/SmallCard';
+import MediumCard from './components/Mediumcard';
 
-const getData = async () => {
+const exploreData = async () => {
   const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G').then(
     (res) => res.json(),
   );
   return exploreData;
 };
 
+const cardsData = async () => {
+  const CardsData = await fetch('https://www.jsonkeeper.com/b/VHHT').then(
+   (res) => res.json(),
+  );
+  return cardsData
+}
+
 const Page = async () => {
-  const data = await getData();
+  const data = await exploreData();
+  const card = await cardsData();
   return (
     <div className="">
       {/* Header */}
@@ -22,9 +31,10 @@ const Page = async () => {
 
       <main className="max-w-7xl mx-auto px-8 sm:px-16 ">
         <section className="p-06">
-          <h2 className="text-3xl font-semibold">Explore Nearby</h2>
+          <h2 className="text-4xl font-semibold">Explore Nearby</h2>
 
           {/* Pull some data from a server - API are already created. */}
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
           {data?.map((item: { location: string , img: string , distance: string  }) => (
              <SmallCard 
              key={item.img.toString()}
@@ -33,6 +43,19 @@ const Page = async () => {
              distance= {item.distance.toString()}
              />
           ))}
+          </div>
+        </section>
+        <section>
+          <h2 className='text-4xl font-semibold py-8'>Live Anywhere</h2>
+          <div className='grid sm:grid-cols-5'>
+          {data?.map((item: { img:string , title: string  }) => (
+             <MediumCard
+             key={item.img.toString()}
+             img={item.img.toString()}
+             title={item.img.toString()}
+             />
+          ))}
+          </div>
         </section>
       </main>
     </div>
