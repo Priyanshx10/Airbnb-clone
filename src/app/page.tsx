@@ -3,25 +3,27 @@ import React from 'react';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import SmallCard from './components/SmallCard';
-import MediumCard from './components/Mediumcard';
+import MediumCard from './components/MediumCard';
+import LargeCard from './components/LargeCard';
 
-const exploreData = async () => {
+const getData = async () => {
   const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G').then(
-    (res) => res.json(),
+    (res) => res.json()
   );
   return exploreData;
 };
 
-const cardsData = async () => {
-  const CardsData = await fetch('https://www.jsonkeeper.com/b/VHHT').then(
-   (res) => res.json(),
+const getData2 = async () => {
+  const cardsData = await fetch('https://www.jsonkeeper.com/b/VHHT').then(
+   (res) => res.json()
   );
-  return cardsData
-}
+  return cardsData;
+};
+
 
 const Page = async () => {
-  const data = await exploreData();
-  const card = await cardsData();
+  const data = await getData();
+  const data2 = await getData2();
   return (
     <div className="">
       {/* Header */}
@@ -45,18 +47,26 @@ const Page = async () => {
           ))}
           </div>
         </section>
+
         <section>
           <h2 className='text-4xl font-semibold py-8'>Live Anywhere</h2>
-          <div className='grid sm:grid-cols-5'>
-          {data?.map((item: { img:string , title: string  }) => (
+          <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
+          {data2?.map((item: { img:string , title:string  }) => (
              <MediumCard
              key={item.img.toString()}
              img={item.img.toString()}
-             title={item.img.toString()}
+             title={item.title.toString()}
              />
           ))}
           </div>
-        </section>
+          
+          <LargeCard
+           img ="https://links.papareact.com/4cj"
+           title="The Greatest Outdoor"
+           description='Wishlists curated by airbnb'
+           buttonText='Get inspired'
+           />      
+          </section>
       </main>
     </div>
   );
