@@ -1,6 +1,8 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import Header from './components/Header';
 import Banner from './components/Banner';
+import SmallCard from './components/SmallCard';
 
 const getData = async () => {
   const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G').then(
@@ -23,8 +25,13 @@ const Page = async () => {
           <h2 className="text-3xl font-semibold">Explore Nearby</h2>
 
           {/* Pull some data from a server - API are already created. */}
-          {data?.map((item: { location: string }) => (
-            <h1 key={item.location.toString()}>{item.location}</h1>
+          {data?.map((item: { location: string , img: string , distance: string  }) => (
+             <SmallCard 
+             key={item.img.toString()}
+             img={item.img.toString()}
+             location={item.location.toString()}
+             distance= {item.distance.toString()}
+             />
           ))}
         </section>
       </main>
