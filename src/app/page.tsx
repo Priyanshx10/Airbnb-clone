@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Banner from './components/Banner';
 
 const getData = async () => {
-  const exploreData = await fetch('https://links.papareact.com/pyp').then(
+  const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G').then(
     (res) => res.json(),
   );
   return exploreData;
