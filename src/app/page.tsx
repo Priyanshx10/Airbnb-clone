@@ -5,6 +5,8 @@ import Banner from './components/Banner';
 import SmallCard from './components/SmallCard';
 import MediumCard from './components/MediumCard';
 import LargeCard from './components/LargeCard';
+import Footer from './components/Footer';
+
 
 const getData = async () => {
   const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G').then(
@@ -68,6 +70,9 @@ const Page = async () => {
            />      
           </section>
       </main>
+
+      <Footer/>
+
     </div>
   );
 };
