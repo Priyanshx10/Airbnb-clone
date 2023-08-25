@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 function Footer() {
     return(
-       <div className="grid grid-cols-2 md:grid-cols-4 space-y-10 px-32 py-14 bg-gray-200 text-gray-200">
+       <div className="grid grid-cols-2 md:grid-cols-4 mt-10 px-32 py-14 bg-gray-200 text-gray-200">
 
         <div className="space-y-4 text-sm text-gray-800">
             <h5 className="font-bold">ABOUT</h5>
