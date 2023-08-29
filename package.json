@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "lint-staged",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
@@ -23,9 +24,16 @@
   "devDependencies": {
     "@types/node": "^20.4.9",
     "eslint-config-timespace": "0.0.5",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
     "typescript": "^5.1.6"
   },
   "eslintConfig": {
     "extends": "timespace"
+  },
+  "lint-staged": { 
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
   }
 }
