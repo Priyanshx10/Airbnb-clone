@@ -1,7 +1,10 @@
-/* eslint-disable prettier/prettier */
-import Image from "next/image";
+import Image from 'next/image';
 
+<<<<<<< HEAD
 interface SmallCardProps {
+=======
+type SmallCardProps = {
+>>>>>>> 218f7cded06491abbaede4791b4f09409b093916
   img: string;
   location: string;
   distance: string;

@@ -68,8 +68,9 @@ const Page = async () => {
           />
         </section>
       </main>
-      useClient();
-      <Footer />
+
+      <Footer/>
+
     </div>
   );
 };
