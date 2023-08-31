@@ -1,24 +1,23 @@
 function Footer() {
-    return(
-       <div className="grid grid-cols-2 md:grid-cols-4 mt-10 px-32 py-14 bg-gray-200 text-gray-200">
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-4 mt-10 px-32 py-14 bg-gray-200 text-gray-200">
+      <div className="space-y-4 text-sm text-gray-800">
+        <h5 className="font-bold">ABOUT</h5>
+        <p>How AIrbnb works</p>
+        <p>NewRooms</p>
+        <p>Investors</p>
+        <p>Airbnb Plus</p>
+        <p>Airbnb Lux</p>
+      </div>
 
-        <div className="space-y-4 text-sm text-gray-800">
-            <h5 className="font-bold">ABOUT</h5>
-            <p>How AIrbnb works</p>
-            <p>NewRooms</p>
-            <p>Investors</p>
-            <p>Airbnb Plus</p>
-            <p>Airbnb Lux</p>
-        </div>
-        
-        <div className="space-y-4 text-sm text-gray-800">
-            <h5 className="font-bold">COMMUNITY</h5>
-            <p>Accessibility</p>
-            <p>Demo</p>
-            <p>Clone</p>
-            <p>Referral Accepted</p>
-            <p>Wolf</p>
-        </div>
+      <div className="space-y-4 text-sm text-gray-800">
+        <h5 className="font-bold">COMMUNITY</h5>
+        <p>Accessibility</p>
+        <p>Demo</p>
+        <p>Clone</p>
+        <p>Referral Accepted</p>
+        <p>Wolf</p>
+      </div>
 
       <div className="space-y-4 text-sm text-gray-800">
         <h5 className="font-bold">HOST</h5>
