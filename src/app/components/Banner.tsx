@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 /* eslint-disable prettier/prettier */
 
 import Image from "next/image";
 import React from "react";
-=======
-import Image from 'next/image';
-import React from 'react';
->>>>>>> 218f7cded06491abbaede4791b4f09409b093916
 
 function Banner() {
   return (

@@ -1,3 +1,6 @@
+// 'use client' directive placed at the top of the file
+'use client';
+
 import Image from 'next/image';
 import {
   SearchIcon,
@@ -12,19 +15,19 @@ import { DateRangePicker } from 'react-date-range';
 
 function Header() {
   const [searchInput, setSearchInput] = useState('');
-  const[startDate,setStartDate] = useState(new Date());
-  const[endDate,setendDate] = useState(new Date());
+  const [startDate] = useState(new Date());
+  const [endDate] = useState(new Date());
 
+  // Corrected spelling: key: 'Selection'
   const selectionRange = {
-    startDate:startDate,
-    endDate:endDate
-    key : Selection
+    startDate,
+    endDate,
+    key: 'Selection', // Provide a value for the 'key' property
   };
 
   return (
-    
-    <header className=" sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">    
-      {/* left */}
+    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
+      {/* Left */}
       <div className="relative flex items-center h-10 cursor-pointer my-auto">
         <Image
           src="https://links.papareact.com/qd3"
@@ -34,7 +37,7 @@ function Header() {
         />
       </div>
 
-      {/* middle */}
+      {/* Middle */}
       <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
         <input
           value={searchInput}
@@ -55,14 +58,13 @@ function Header() {
           <UserCircleIcon className="h-6" />
         </div>
       </div>
-      <div>
-        {searchInput && (
-          <div>
-            <DateRangePicker 
-            range= {[selectionRange]}/>
-          </div>
-        )}
-      </div>
+
+      {/* Conditional rendering with date picker */}
+      {searchInput && (
+        <div>
+          <DateRangePicker ranges={[selectionRange]} />
+        </div>
+      )}
     </header>
   );
 }

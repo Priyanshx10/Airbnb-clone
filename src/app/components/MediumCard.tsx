@@ -1,16 +1,9 @@
 import Image from 'next/image';
 
-<<<<<<< HEAD
 interface MediumCardProps {
   img: string;
   title: string;
 }
-=======
-type MediumCardProps = {
-  img: string;
-  title: string;
-};
->>>>>>> 218f7cded06491abbaede4791b4f09409b093916
 
 function MediumCard({ img, title }: MediumCardProps) {
   return (

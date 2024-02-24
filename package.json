@@ -15,7 +15,7 @@
     "autoprefixer": "10.4.14",
     "date-fns": "^2.30.0",
     "eslint-config-next": "13.4.13",
-    "next": "13.4.13",
+    "next": "^13.4.13",
     "postcss": "8.4.27",
     "react": "^18.2.0",
     "react-date-range": "^1.4.0",
@@ -25,13 +25,14 @@
   },
   "devDependencies": {
     "@types/node": "^20.4.9",
+    "@types/react-date-range": "^1.4.9",
     "eslint-config-timespace": "0.0.5",
     "typescript": "^5.1.6"
   },
   "eslintConfig": {
     "extends": "timespace"
   },
-  "lint-staged": { 
+  "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ]
