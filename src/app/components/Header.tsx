@@ -1,29 +1,44 @@
-// 'use client' directive placed at the top of the file
-// eslint-disable-next-line lines-around-directive
 'use client';
 
+/* eslint-disable react/button-has-type */
 import Image from 'next/image';
 import {
   SearchIcon,
+  UsersIcon,
   GlobeAltIcon,
   MenuAlt1Icon,
   UserCircleIcon,
 } from '@heroicons/react/solid';
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import { DateRangePicker } from 'react-date-range';
 
 function Header() {
   const [searchInput, setSearchInput] = useState('');
-  const [startDate] = useState(new Date());
-  const [endDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [noOfGuest, setNoOfGuest] = useState(1);
+
+  const handleSelect = (ranges: {
+    selection: {
+      startDate: SetStateAction<Date>;
+      endDate: SetStateAction<Date>;
+    };
+  }) => {
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
+  };
+
+  const resetInput = () => {
+    setSearchInput(' ');
+  };
 
   // Corrected spelling: key: 'Selection'
   const selectionRange = {
     startDate,
     endDate,
-    key: 'Selection', // Provide a value for the 'key' property
+    key: 'selection', // Provide a value for the 'key' property
   };
 
   return (
@@ -43,11 +58,11 @@ function Header() {
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          className="flex flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400"
+          className="flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400"
           type="text"
           placeholder="Start Your Search"
         />
-        <SearchIcon className="ml-2 md:inline-flex h-8 bg-pink-400 text-white rounded-full p-2 cursor-pointer md:mx-4" />
+        <SearchIcon className="hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2" />
       </div>
 
       {/* Right */}
@@ -62,8 +77,35 @@ function Header() {
 
       {/* Conditional rendering with date picker */}
       {searchInput && (
-        <div>
-          <DateRangePicker ranges={[selectionRange]} />
+        <div className="flex flex-col col-span-3 mx-auto">
+          <DateRangePicker
+            ranges={[selectionRange]}
+            minDate={new Date()}
+            rangeColors={['#FD5B61']}
+            onChange={handleSelect}
+            className="text-black "
+          />
+          <div className="flex items-center border-b mb-4">
+            <h2 className="text-2xl flex-grow font-semibold text-black">
+              Number of Guests
+            </h2>
+            <div>
+              <UsersIcon className="h-5 mr-2" />
+            </div>
+            <input
+              value={noOfGuest}
+              min={1}
+              onChange={(e) => setNoOfGuest(Number(e.target.value))}
+              type="number"
+              className="w-12 pl-2 text-lg outline-none text-red-400"
+            />
+          </div>
+          <div className="flex">
+            <button onClick={resetInput} className="flex-grow text-black ">
+              Cancel
+            </button>
+            <button className="flex-grow text-red-400">Search</button>
+          </div>
         </div>
       )}
     </header>
