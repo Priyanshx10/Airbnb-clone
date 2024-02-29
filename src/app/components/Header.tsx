@@ -1,6 +1,9 @@
 'use client';
 
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+
 import Image from 'next/image';
 import {
   SearchIcon,
@@ -9,32 +12,29 @@ import {
   MenuAlt1Icon,
   UserCircleIcon,
 } from '@heroicons/react/solid';
-import { SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import { DateRangePicker } from 'react-date-range';
+import { useRouter } from 'next/navigation';
 
 function Header() {
   const [searchInput, setSearchInput] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuest, setNoOfGuest] = useState(1);
+  const router = useRouter();
 
-  const handleSelect = (ranges: {
-    selection: {
-      startDate: SetStateAction<Date>;
-      endDate: SetStateAction<Date>;
-    };
-  }) => {
+  const handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
   };
 
   const resetInput = () => {
-    setSearchInput(' ');
+    setSearchInput(''); // Fixed typo to clear the input field
   };
 
-  // Corrected spelling: key: 'Selection'
+  // Corrected spelling: key: 'selection'
   const selectionRange = {
     startDate,
     endDate,
@@ -44,12 +44,15 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
       {/* Left */}
-      <div className="relative flex items-center h-10 cursor-pointer my-auto">
+      <div
+        onClick={() => router.push('/')}
+        className="relative flex items-center h-10 cursor-pointer my-auto"
+      >
         <Image
           src="https://links.papareact.com/qd3"
           alt="Airbnb logo"
-          height={100} // Adjust the height as needed
-          width={100} // Adjust the width as needed
+          height={100} // Adjusted height
+          width={100} // Adjusted width
         />
       </div>
 
@@ -79,11 +82,11 @@ function Header() {
       {searchInput && (
         <div className="flex flex-col col-span-3 mx-auto">
           <DateRangePicker
+            onChange={handleSelect}
             ranges={[selectionRange]}
             minDate={new Date()}
             rangeColors={['#FD5B61']}
-            onChange={handleSelect}
-            className="text-black "
+            className="text-black"
           />
           <div className="flex items-center border-b mb-4">
             <h2 className="text-2xl flex-grow font-semibold text-black">
