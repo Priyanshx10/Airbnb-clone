@@ -34,6 +34,12 @@ function Header() {
     setSearchInput(''); // Fixed typo to clear the input field
   };
 
+  const search = () => {
+    router.push({
+      pathname: '/Search',
+    });
+  };
+
   // Corrected spelling: key: 'selection'
   const selectionRange = {
     startDate,
@@ -107,7 +113,9 @@ function Header() {
             <button onClick={resetInput} className="flex-grow text-black ">
               Cancel
             </button>
-            <button className="flex-grow text-red-400">Search</button>
+            <button className="flex-grow text-red-400" onClick={search}>
+              Search
+            </button>
           </div>
         </div>
       )}
