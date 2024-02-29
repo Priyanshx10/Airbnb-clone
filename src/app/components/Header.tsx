@@ -1,4 +1,5 @@
 // 'use client' directive placed at the top of the file
+// eslint-disable-next-line lines-around-directive
 'use client';
 
 import Image from 'next/image';
@@ -42,9 +43,9 @@ function Header() {
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
+          className="flex flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400"
           type="text"
-          className="flex-grow pl-5 bg-transparent outline-none"
-          placeholder="Search Here"
+          placeholder="Start Your Search"
         />
         <SearchIcon className="ml-2 md:inline-flex h-8 bg-pink-400 text-white rounded-full p-2 cursor-pointer md:mx-4" />
       </div>
