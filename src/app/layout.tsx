@@ -5,8 +5,8 @@ import { Metadata } from 'next';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Airbnb_Clone',
-  description: 'This is an Airbnb clone built with Next.js and Tailwind CSS.',
+  title: 'The Blessed Home',
+  description: 'This is an Blessed Home built with Next.js and Tailwind CSS.',
 };
 
 interface RootLayoutProps {

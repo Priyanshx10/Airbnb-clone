@@ -18,7 +18,7 @@ function Banner() {
         </p>
         <button
           type="button"
-          className=" text-purple-800 bg-white py-06 px-10 shadow-md
+          className=" text-purple-500 bg-white py-06 px-10 shadow-md
              rounded-full font-bold my-3 hover:shadow-xl 
              active:scale-90 transition duration-150"
         >
